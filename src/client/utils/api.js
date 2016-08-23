@@ -1,6 +1,8 @@
-import 'whatwg-fetch'
+import fetch from 'isomorphic-fetch'
 import { createHash } from 'crypto'
 import { curry } from 'ramda'
+
+import { addChars } from '../actions/chars'
 
 const API_PUBLIC = '298bab46381a6daaaee19aa5c8cafea5'
 const API_PRIVATE = 'b0223681fced28de0fe97e6b9cd091dd36a5b71d'
@@ -17,26 +19,26 @@ const genParams = () => {
 }
 
 const fetchOptions = {
-  mode: 'no-cors',
+  // mode: 'cors',  
   method: 'GET',
   headers: {
-    'Accept': 'application/json',
+    // 'Accept': 'application/json',
     'Content-Type': 'application/json',
   },
 }
 
-export const fetchCharacters = callback =>
+export const fetchCharacters = dispatch =>
   fetch(`${BASE_URL}/${URI}${genParams()}`, fetchOptions)
   .then(res => res.json())
-  .then(json => callback(json)).catch(console.warn)
+  .then(json => dispatch(addChars(json.data))).catch(console.warn)
 
 // const doFetch = (endpoint, options) => (
 //   fetch(API_URL + endpoint, options))
 
-export const working = (what) => ({
-  type: BUSY,
-  what,
-})
+// export const working = (what) => ({
+//   type: BUSY,
+//   what,
+// })
 
 // export const apiCall = (options) => (endpoint) => (onResult) => {
 //   doFetch(endpoint, options)

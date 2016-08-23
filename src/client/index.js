@@ -7,20 +7,26 @@ import { createStore, applyMiddleware, combineReducers } from 'redux'
 
 import { Router, Route, hashHistory } from 'react-router'
 
-import api from './reducers/apiReducer'
-import lists from './reducers/listReducer'
-import tasks from './reducers/taskReducer'
+import characters from './reducers/charReducer'
+// import lists from './reducers/listReducer'
+// import tasks from './reducers/taskReducer'
 
 import App from './containers/app'
 import { Character } from './components/character'
 import { Chars } from './components/chars'
 
 const initialState = {
+  // api is obsolete since UiBar is controlled
   // api: {
   //   heroes: 'IDLE',
   //   tasks: 'IDLE',
   // },
-  heroes: [
+  // later : add visibility filter ?
+  // filter: {
+  //   amount: 0,
+  //   specifier: 0,
+  // },
+  characters: [
   ],
 };
 // TRASH TEST
@@ -28,14 +34,15 @@ import { fetchCharacters } from './utils/api'
 fetchCharacters('', console.log);
 // ergh
 
-const todoStore = createStore(
-  combineReducers({ api, lists, tasks }),
+const Store = createStore(
+  // filter later ?
+  combineReducers({ characters }),
   initialState,
   applyMiddleware(createLogger(), thunk)
 );
 
 ReactDom.render(
-  <Provider store={todoStore}>
+  <Provider store={Store}>
     <Router history={hashHistory}>
       <Route component={App} path='/'>
         <Route component={Chars} path='/characters'/>

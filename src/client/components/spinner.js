@@ -1,8 +1,8 @@
 import React from 'react'
 import { IDLE } from '../actions/api'
 
-const Spinner = ({ api }) => {
-  if (api.lists === IDLE && api.tasks === IDLE) {
+const Spinner = ({ status }) => {
+  if (status === IDLE) {
     return (<div className='spinner'></div>)
   }
   return (
@@ -16,7 +16,7 @@ const Spinner = ({ api }) => {
 }
 
 Spinner.propTypes = {
-  api: React.PropTypes.object.isRequired,
+  status: React.PropTypes.string.isRequired,
 }
 
 export default Spinner

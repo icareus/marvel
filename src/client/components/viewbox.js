@@ -2,29 +2,31 @@
  * Created by Antoine on 11/07/2016.
  */
 import React from 'react'
-import _ from 'lodash'
-import TaskList from './tasklist'
+// import _ from 'lodash'
+import { map } from 'ramda'
+import character from './character'
 
-const Todo = ({ lists, tasks, handlers }) => {
+const ViewBox = ({ characters }) => {
   // console.warn('selector result:', getTasksByListId(443, tasks))
   // console.warn('tasks :', tasks);
   return (
-  <div className='todo'>
-  {_.map(lists, (taskList) => (
+  <div className='viewbox'>
+  {/*_.map(character => (
     <TaskList
       handlers={ handlers }
       key={ taskList.id }
       list={ taskList }
       // getTasksByListId selector
       // tasks={ getTasksByListId(taskList, tasks) } />))}
-      tasks={ _.filter(tasks, t => (t.listId === taskList.id)) } />))}
+      tasks={ _.filter(tasks, t => (t.listId === taskList.id)) } />))*/
+    }
+    <chars />
   </div>
 )}
 
-Todo.propTypes = {
+ViewBox.propTypes = {
   handlers: React.PropTypes.object.isRequired,
-  lists: React.PropTypes.array.isRequired,
-  tasks: React.PropTypes.array.isRequired,
+  characters: React.PropTypes.array.isRequired,
 }
 
-export default Todo
+export default ViewBox

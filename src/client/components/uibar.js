@@ -1,13 +1,17 @@
 import React from 'react'
 import Spinner from './spinner'
 
-class NewList extends React.Component {
+const IDLE = 'IDLE'
+
+class UiBar extends React.Component {
   static propTypes = {
     handlers: React.PropTypes.object.isRequired,
-    status: React.PropTypes.object.isRequired,
   }
 
-  state = { input: '' }
+  state = {
+    input: '',
+    status: IDLE
+  }
 
   handleInput = e => {
     this.setState({ input: e.target.value })
@@ -15,24 +19,28 @@ class NewList extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     if (!this.state.input) { return }
+      // rewrite ?
     this.props.handlers.onNewList(this.state.input);
-    this.setState({ input: '' });
+    this.setState({
+      input: '',
+      status: BUSY,
+    });
   };
   render() {
+    // TODO : change onclicks to router links
     return (
-      <div className='todo-list padded'>
+      <div className='list padded'>
         <form onSubmit={ this.handleSubmit }>
           <input
             onChange={ this.handleInput }
-            placeholder='New List'
+            placeholder='Search for character'
             value={ this.state.input } />
-          <Spinner api={ this.props.status } />
-          <button type='submit'>+</button>
+          <Spinner status={ this.state.status } />
+          <button type='submit'>Filter</button>
         </form>
-        <button onClick={ this.props.handlers.fetchTasks }>Get Tasks !</button>
-        <button onClick={ this.props.handlers.fetchLists }>Get Lists !</button>
+        <button onClick={ this.props.handlers.fetchTasks }>Browse !</button>
       </div>
   ) }
 }
 
-export default NewList
+export default UiBar
