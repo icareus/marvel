@@ -32,20 +32,3 @@ export const fetchCharacters = () => dispatch =>
   .then(res => res.json())
   // .then(json => dispatch(addChars(json.data))).catch(console.warn)
   .then(json => dispatch(addChars(json.data.results))).catch(console.warn)
-
-// const doFetch = (endpoint, options) => (
-//   fetch(API_URL + endpoint, options))
-
-// export const working = (what) => ({
-//   type: BUSY,
-//   what,
-// })
-
-// export const apiCall = (options) => (endpoint) => (onResult) => {
-//   doFetch(endpoint, options)
-//     .then(
-//       response => response.json(),
-//       err => { console.warn(err) })
-//     .then(json => onResult(json))
-//     .catch(e => console.warn(e, onResult, options.method))
-// }

@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router'
-// import R from 'ramda'
+import { map } from 'ramda'
 
-export const Chars = characters => {
-	console.log(characters);
+export const Chars = ({...args}) => {
+	console.log(args);
 	return (
-  <div>
+  <div className='list padded'>
     <ul>
       <li><Link to='/characters/42'>42</Link></li>
       <li><Link to='/characters/84'>84</Link></li>

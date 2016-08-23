@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 
-import { Router, Route, hashHistory } from 'react-router'
+import { Router, Route, browserHistory } from 'react-router'
 
 import characters from './reducers/charReducer'
 import { fetchCharacters } from './utils/api'
@@ -25,8 +25,8 @@ const initialState = {
   //   amount: 0,
   //   specifier: 0,
   // },
-  characters: [
-  ],
+  characters: {
+  },
 };
 
 const Store = createStore(
@@ -38,7 +38,7 @@ const Store = createStore(
 
 ReactDom.render(
   <Provider store={Store}>
-    <Router history={hashHistory}>
+    <Router history={browserHistory}>
       <Route component={App} path='/'>
         <Route component={Chars} path='/characters'/>
         <Route component={Character} path='/characters/:id'/>

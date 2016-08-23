@@ -1,7 +1,7 @@
 import React from 'react'
-import { IDLE } from '../actions/api'
+import { IDLE } from '../utils/api'
 
-const Spinner = ({ status }) => {
+const Spinner = status => {
   if (status === IDLE) {
     return (<div className='spinner'></div>)
   }

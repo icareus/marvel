@@ -21,14 +21,13 @@ class UiBar extends React.Component {
     e.preventDefault();
     if (!this.state.input) { return }
       // rewrite ?
-    this.props.handlers.onNewList(this.state.input);
+    // this.props.handlers.onNewList(this.state.input);
     this.setState({
       input: '',
-      status: BUSY,
+      status: IDLE,
     });
   };
   render() {
-    // TODO : change onclicks to router links
     return (
       <div className='list padded'>
         <form onSubmit={ this.handleSubmit }>
