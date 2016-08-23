@@ -27,10 +27,11 @@ const fetchOptions = {
   },
 }
 
-export const fetchCharacters = dispatch =>
+export const fetchCharacters = () => dispatch =>
   fetch(`${BASE_URL}/${URI}${genParams()}`, fetchOptions)
   .then(res => res.json())
-  .then(json => dispatch(addChars(json.data))).catch(console.warn)
+  // .then(json => dispatch(addChars(json.data))).catch(console.warn)
+  .then(json => dispatch(addChars(json.data.results))).catch(console.warn)
 
 // const doFetch = (endpoint, options) => (
 //   fetch(API_URL + endpoint, options))

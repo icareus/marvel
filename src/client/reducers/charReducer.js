@@ -1,21 +1,21 @@
 /**
  * Created by Antoine on 19/07/2016.
  */
-import { curry } from 'ramda'
+import { concat, curry } from 'ramda'
 // import { ADD_LIST, DEL_LIST, GOT_LISTS } from '../actions/lists'
 // import { ADD_TASK, INPUT_TASK } from '../actions/tasks'
 import { ADD_CHARS } from '../actions/chars'
 
 
-const characters = curry((state = [], action) => {
+const characters = (state = [], action) => {
   switch(action.type) {
     case ADD_CHARS:
-      return concat(action.characters)
+      return concat(state, action.chars)
 
     default:
       return state
   }
-})
+}
 
 export default characters
 // export default function characters(state = [], action) {

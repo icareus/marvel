@@ -23,7 +23,10 @@ export const ADD_CHARS = 'ADD_CHARS';
 //   lists,
 // })
 
-export const addChars = assoc(_, {type: ADD_CHARS})
+export const addChars = chars => ({
+	type: ADD_CHARS,
+	chars,
+})
 
 // export const deleteList = (id) => (dispatch) => {
 //   dispatch(working(LISTS));

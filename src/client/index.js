@@ -8,8 +8,7 @@ import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { Router, Route, hashHistory } from 'react-router'
 
 import characters from './reducers/charReducer'
-// import lists from './reducers/listReducer'
-// import tasks from './reducers/taskReducer'
+import { fetchCharacters } from './utils/api'
 
 import App from './containers/app'
 import { Character } from './components/character'
@@ -29,10 +28,6 @@ const initialState = {
   characters: [
   ],
 };
-// TRASH TEST
-import { fetchCharacters } from './utils/api'
-fetchCharacters('', console.log);
-// ergh
 
 const Store = createStore(
   // filter later ?

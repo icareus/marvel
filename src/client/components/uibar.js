@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 import Spinner from './spinner'
 
 const IDLE = 'IDLE'
@@ -38,7 +39,9 @@ class UiBar extends React.Component {
           <Spinner status={ this.state.status } />
           <button type='submit'>Filter</button>
         </form>
-        <button onClick={ this.props.handlers.fetchTasks }>Browse !</button>
+        <Link to='/characters'>
+          <button onClick={ this.props.handlers.fetchCharacters }>Browse !</button>
+        </Link>
       </div>
   ) }
 }
