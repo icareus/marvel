@@ -16,13 +16,11 @@ import { Character } from './components/character'
 import { Chars } from './components/chars'
 
 const initialState = {
-  api: {
-    lists: 'IDLE',
-    tasks: 'IDLE',
-  },
-  lists: [
-  ],
-  tasks: [
+  // api: {
+  //   heroes: 'IDLE',
+  //   tasks: 'IDLE',
+  // },
+  heroes: [
   ],
 };
 // TRASH TEST
@@ -39,9 +37,10 @@ const todoStore = createStore(
 ReactDom.render(
   <Provider store={todoStore}>
     <Router history={hashHistory}>
-      <Route component={App} path='/'/>
-      <Route component={Chars} path='/characters'/>
-      <Route component={Character} path='/characters/:id'/>
+      <Route component={App} path='/'>
+        <Route component={Chars} path='/characters'/>
+        <Route component={Character} path='/characters/:id'/>
+      </Route>
     </Router>
   </Provider>, document.getElementById('react-wrapper')
 );

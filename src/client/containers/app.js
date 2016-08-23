@@ -13,7 +13,7 @@ import { pushTask, deleteTask, getTasks } from '../actions/tasks'
 
 const App = ({ api, lists, tasks, ...handlers }) => (
   <div className='app-wrapper'>
-    <span><h1>A fantastic Todo is on its way !</h1></span>
+    <span><h1>Component reusability is awesome @_@</h1></span>
     <NewList
       handlers={ handlers }
       status={ api } />
