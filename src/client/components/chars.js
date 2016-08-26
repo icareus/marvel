@@ -12,14 +12,13 @@ class Chars extends React.Component {
     this.props.fetchChars()
   }
 	render() {
-    console.warn(this.props.characters)
     return (
     <div className='list padded'>
       <ul>
       {map(
         // char => <li><Link to={`/characters/${char.id}`}>char.name</Link></li>,
-        <CharThumb></CharThumb>,
-        ...this.props.characters
+        CharThumb,
+        this.props.characters
       )}
       </ul>
     </div>

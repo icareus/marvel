@@ -11,12 +11,11 @@ import characters from './reducers/charReducer'
 import { fetchCharacters } from './utils/api'
 
 import App from './containers/app'
-import { Character } from './components/character'
+import Character from './components/character'
 import Chars from './components/chars'
 
 const initialState = {
-  characters: {
-  },
+  characters: [],
 };
 
 const Store = createStore(

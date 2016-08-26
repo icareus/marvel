@@ -31,3 +31,10 @@ export const fetchCharacters = () => dispatch =>
   fetch(`${BASE_URL}/${URI}${genParams()}`, fetchOptions)
   .then(res => res.json())
   .then(json => dispatch(addChars(json.data.results))).catch(console.warn)
+
+export const fetchById = id => dispatch =>
+  fetch(`${BASE_URL}/${URI}/${id}${genParams()}`, fetchOptions)
+  .then(res => res.json())
+  .then(json =>
+    dispatch(addChars(json.data.results)))
+  .catch(console.warn)

@@ -30,12 +30,12 @@ textarea {
     color: #DCDDD8;
 }
 
-.task {
+.list_elem {
     background-color: #CD4436;
     color: #DCDDD8;
 }
 
-.task_input {
+.elem__input {
     width: 80%;
 }
 

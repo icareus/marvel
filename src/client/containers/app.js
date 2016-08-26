@@ -19,7 +19,7 @@ const App = ({ characters = [], children, ...handlers }) => (
 )
 
 App.propTypes = {
-  characters: React.PropTypes.object.isRequired,
+  characters: React.PropTypes.array.isRequired,
   dispatch: React.PropTypes.func,
 }
 
