@@ -6,7 +6,7 @@
   "scripts": {
     "eslint": "eslint src",
     "client-dist": "NODE_ENV=production webpack --progress --colors",
-    "client-dev": "webpack-dev-server --colors --hot --inline --host 127.0.0.1 --port 8877",
+    "client-dev": "webpack-dev-server --colors --hot --inline --host 127.0.0.1 --port 8877 --history-api-fallback",
     "srv-dev": "DEBUG=todo:* babel-watch -w src src/server/main.js",
     "srv-dist": "DEBUG=todo:* babel src --out-dir dist",
     "test": "mocha --require babel-core/register --reporter spec",

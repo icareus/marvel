@@ -12,19 +12,9 @@ import { fetchCharacters } from './utils/api'
 
 import App from './containers/app'
 import { Character } from './components/character'
-import { Chars } from './components/chars'
+import Chars from './components/chars'
 
 const initialState = {
-  // api is obsolete since UiBar is controlled
-  // api: {
-  //   heroes: 'IDLE',
-  //   tasks: 'IDLE',
-  // },
-  // later : add visibility filter ?
-  // filter: {
-  //   amount: 0,
-  //   specifier: 0,
-  // },
   characters: {
   },
 };

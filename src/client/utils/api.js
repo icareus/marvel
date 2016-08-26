@@ -4,8 +4,8 @@ import { curry } from 'ramda'
 
 import { addChars } from '../actions/chars'
 
-const API_PUBLIC = '298bab46381a6daaaee19aa5c8cafea5'
-const API_PRIVATE = 'b0223681fced28de0fe97e6b9cd091dd36a5b71d'
+const API_PUBLIC = '2a1fa8e58afe69d776a0ec7ed409c791'
+const API_PRIVATE = '0bdbfdab2e33ec304f4cb7825243178cadbdf43e'
 const BASE_URL = 'http://gateway.marvel.com:80'
 const URI = 'v1/public/characters'
 
@@ -30,5 +30,4 @@ const fetchOptions = {
 export const fetchCharacters = () => dispatch =>
   fetch(`${BASE_URL}/${URI}${genParams()}`, fetchOptions)
   .then(res => res.json())
-  // .then(json => dispatch(addChars(json.data))).catch(console.warn)
   .then(json => dispatch(addChars(json.data.results))).catch(console.warn)

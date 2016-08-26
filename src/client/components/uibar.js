@@ -39,7 +39,7 @@ class UiBar extends React.Component {
           <button type='submit'>Filter</button>
         </form>
         <Link to='/characters'>
-          <button onClick={ this.props.handlers.fetchCharacters }>Browse !</button>
+          <button>Browse !</button>
         </Link>
       </div>
   ) }
